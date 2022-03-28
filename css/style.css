@@ -17,6 +17,7 @@ header {
 h1 {
     color: #901C1C;
     margin-right: 100px;
+    font-weight: 500;
 }
 
 .logo {
@@ -31,20 +32,45 @@ h1 {
     margin-top: 100px;
 }
 
-.photographer_section article {
+.photographer_section a {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-decoration: none;
+
+}
+.photographer_section a:hover{
+ transform: scale(1.2);
 }
 
-.photographer_section article h2 {
+.photographer_section a h2 {
     color: #D3573C;
     font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 
-.photographer_section article img {
+.photographer_section a img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: -98 25;
 }
+.photographerAside{
+    text-align: center;
+    line-height: 50%;
+}
+.photographerTitle{
+    color: #D3573C;
+}
+.photographerTag{
+    font-size: 14px;
+}
+.photographerMoney{
+    color: #525252;
+    font-size: 12px;
+}
+
