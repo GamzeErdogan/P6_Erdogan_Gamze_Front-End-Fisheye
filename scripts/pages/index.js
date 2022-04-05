@@ -1,34 +1,21 @@
-    async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
-            let url = '/data/photographers.json';
-            try {
-                let res = await fetch (url);
-                return await res.json();
-                
-            } catch (error){
-                console.log(error)
-            }
-            
-        }
 
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
+async function displayHomePage(photographers) {
+    const photographersSection = document.querySelector(".photographer_section");
 
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    };
+    photographers.forEach((photographerProfil) => {
+        const photographerTemplate = new photographerObj(photographerProfil);
+        photographersSection.appendChild(photographerTemplate.cardDom);
+    });
+};
 
-    async function init() {
-        // Récupère les datas des photographes
-        const photographersObj = await getPhotographers();
-        console.log("result: ",photographersObj);
-        displayData(photographersObj.photographers);
-        //photographersObj.media
-  
-    };
-    
-    init();
-    
+async function init() {
+    const photographersObj = await fishEyesAPI();
+    console.log("result: ",photographersObj);
+    displayHomePage(photographersObj.photographers);
+
+};
+
+init();
+
+
+   
