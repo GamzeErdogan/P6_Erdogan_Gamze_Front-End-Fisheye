@@ -5,9 +5,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
-    integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -21,29 +18,59 @@
         <button class="contact_button contactButtonPosition" onclick="displayModal()" aria-label="Ouvre la fenetre de contact">Contactez-moi</button>
       
     </main>
+    <nav>
+      <label>Trier par</label>
+      <select id="section-sort">
+        <option value="popularite">Popularite</option>
+        <option value="title">Titre</option>
+      </select>
+    </nav>
     <aside id="containerImage">
-
     </aside>
-    <div id="contact_modal">
+
+    <div id="totalLikesDiv"><div id="totalLikeHeartDiv"><span id="totalLikes">0</span><img src="assets/icons/like-of-filled-heart.png" /></div><span id="totalLikesPrice"></span></div>
+    
+    <div id="lightbox">
+        <img class="lightbox__close" role="Close Button" src="assets/icons/xmark-solid.svg"/>
+        <img class="lightbox__next" role="Next Button" src="assets/icons/angle-right-solid.svg"/>
+        <img class="lightbox__back" role="Previous Button" src="assets/icons/angle-left-solid.svg"/>
+        <div id="lightbox__container">
+          <!-- <img src="#" alt=""> -->
+        </div>
+    </div>
+    <div id="contact_modal" role="dialog" aria-hidden="true">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2>Contactez-moi</h2></br>
+          <h3 id="titleForm"></h3>
+          <img src="assets/icons/close.svg" role="button" aria-label="contactez- moi" onclick="closeModal()" />
         </header>
 				<form>
 					<div>
 						<label>Prénom</label>
-						<input />
+						<input type="text" id="prenom" />
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <div>
+						<label>Nom</label>
+						<input type="text" id="surname"/>
+					</div>
+          <div>
+						<label >Email</label>
+						<input type="Email" id="email" placeholder="example@gmail.com"/>
+					</div>
+          <div>
+						<label>Votre Message</label>
+						<input id="formMessageInput" type="text" placeholder="Vous pouvez ecrire votre message ici." maxlength="250"/>
+					</div>
+          <button  id="sendButon" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <script src="scripts/api/fishEyesApi.js"></script>
-    <script src="scripts/models/photographerObj.js"></script><!-- Classes are here -->
+    <script src="scripts/modelsObj/photographerObj.js"></script>
     <script src="scripts/pages/photographer.js"></script> 
+    <script src="scripts/modelsObj/mediaObj.js"></script>
     <script src="scripts/utils/contactForm.js"></script>  
-    <script src="scripts/models/mediaObj.js"></script>
     
   </body>
 </html>

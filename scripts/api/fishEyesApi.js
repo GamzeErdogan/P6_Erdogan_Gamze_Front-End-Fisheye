@@ -9,6 +9,3 @@ const fishEyesAPI = async () => {
         console.log(error);
     }
 };
-
-  
-

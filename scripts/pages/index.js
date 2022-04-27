@@ -1,4 +1,4 @@
-
+//----------This function displays the entire page of the index-------------------------
 async function displayHomePage(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 

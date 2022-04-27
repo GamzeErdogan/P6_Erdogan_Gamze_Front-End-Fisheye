@@ -1,10 +1,8 @@
-// import('../models/mediaObj.js');
 
 class photographerObj {
-    //Properies
-    // medias = [];
     
     constructor(photographerJsonObj){
+        
         this.name = photographerJsonObj.name
         this.id = photographerJsonObj.id
         this.city = photographerJsonObj.city
@@ -12,7 +10,7 @@ class photographerObj {
         this.tagline = photographerJsonObj.tagline
         this.price = photographerJsonObj.price
         this.portrait = photographerJsonObj.portrait
-    }
+    };
 
     //Property of the photographer class
     //This property returns home page card complated dom
@@ -20,7 +18,7 @@ class photographerObj {
         let innerHtml = `
             <a href="photographer.html?photographerID=${this.id}">
                 <img class="photographerImagePosition"
-                 src="assets/photographersMedia/PhotographersIdPhotos/${this.portrait}" alt="${this.name}" />
+                 src="assets/photographersMedia/PhotographersIdPhotos/${this.portrait}" alt="${this.name}"/>
                 <h2 class="photographerTitlePosition">${this.name}</h2>
             </a>
             <div class="photographerAside">
@@ -30,9 +28,8 @@ class photographerObj {
             </div> `;
 
         return this.appendHtmlDomToSection(innerHtml);
-    }
-
-    //Property of the photographer class
+    };
+    
     //This property returns photographer page profil dom
     get profilDom(){
         let innerHtml = `
@@ -54,5 +51,7 @@ class photographerObj {
         creatSection.innerHTML = innerHTML;
 
         return creatSection;
-    }
+    };
+
+   
 };
