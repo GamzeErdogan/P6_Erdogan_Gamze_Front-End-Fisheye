@@ -15,9 +15,9 @@ class Media {
     get mediaCardDom(){
         let creatCard = document.createElement('div');
         creatCard.innerHTML = `
-        <img class="dimensionImg cursor" photoId="${this.id}" title="${this.title}" 
+        <a href="#" onclick="openModalLightBox(this)" ><img class="dimensionImg cursor" photoId="${this.id}" title="${this.title}" 
         src="assets/photographersMedia/${this.photographerId}/${this.image}" 
-        alt="${this.title}" onclick="openModalLightBox(this)"/>
+        alt="${this.title}"/></a>
         <div class="positionOfLikes">
             <p class="titleStyle"> ${this.title}</p>
             <div class="positionOfDiv">
@@ -34,9 +34,9 @@ class Media {
     get justVideoCardDom(){
         let creatVideoTag = document.createElement('div');
         creatVideoTag.innerHTML = `
-        <video class="cursor" width="350px" height="350px" title="${this.title}" onclick="openModalLightBox(this)">
+        <a href="#" onclick="openModalLightBox(this)"><video class="cursor" width="350px" height="350px" title="${this.title}" >
             <source src="assets/photographersMedia/${this.photographerId}/${this.video}" type="video/mp4">
-        </video>
+        </video></a>
         <div class="positionOfLikes">
             <p class="titleStyle"> ${this.title}</p>
             <div class="positionOfDiv">
@@ -77,18 +77,19 @@ function openModalLightBox (obj){
     //Loading image src
     document.getElementById('lightbox').style.display = 'block';
     var lightBox = document.getElementById('lightbox__container');
-    var title = obj.getAttribute('title');
-    switch(obj.tagName) {
+    var title = obj.firstChild.getAttribute('title');
+    console.log(title);
+    switch(obj.firstChild.tagName) {
         
         case 'IMG':
-            var srcInfo= obj.getAttribute('src');
+            var srcInfo= obj.firstChild.getAttribute('src');
             lightBox.innerHTML =`<img src="${srcInfo}" alt="${title}" />
                                  <p class="lightBocTitle">${title}</p>
             `;
             
             break;
             case 'VIDEO':
-                var srcInfo= obj.querySelector('source').getAttribute('src');
+                var srcInfo= obj.firstChild.querySelector('source').getAttribute('src');
                 lightBox.innerHTML =`<video controls alt="${title}">
                                         <source src="${srcInfo}" type="video/mp4"/>
                                      </video>
@@ -97,14 +98,14 @@ function openModalLightBox (obj){
     };
 
     // Action for next button
-    var currentObj = obj;
+    var currentObj = obj.firstChild;
     var lightBoxNext = document.getElementsByClassName('lightbox__next')[0];
     lightBoxNext.addEventListener('click',() => {
        
-        let nextObj = currentObj.parentElement.nextSibling;
-        
+        let nextObj = currentObj.parentElement.parentElement.nextSibling;
         if (nextObj) {
             let nextImgObj =  nextObj.getElementsByClassName('cursor')[0];
+            console.log(nextImgObj);
             let nextTitle =nextImgObj.getAttribute('title');
             srcInfo = nextImgObj.getAttribute('src');
             lightBox.innerHTML =`<img src="${srcInfo}" alt="${title}"/>
@@ -117,11 +118,12 @@ function openModalLightBox (obj){
     // Action for back button
     var lightBoxBack = document.getElementsByClassName('lightbox__back')[0];
     lightBoxBack.addEventListener('click',() => {
-        let previousObj = currentObj.parentElement.previousElementSibling;
+        let previousObj = currentObj.parentElement.parentElement.previousElementSibling;
         if (previousObj) {
             let previousImgObj =  previousObj.getElementsByClassName('cursor')[0];
             let previousTitle =previousImgObj.getAttribute('title');
             switch(previousImgObj.tagName) {
+
                 case 'IMG':
                     srcInfo = previousImgObj.getAttribute('src');
                     lightBox.innerHTML =`<img src="${srcInfo}" alt="${title}"/>
@@ -154,7 +156,7 @@ function openModalLightBox (obj){
         switch (event.key) {
           case "ArrowRight":
             // Do something for "right arrow" key press.
-            let nextObj = currentObj.parentElement.nextSibling;
+            let nextObj = currentObj.parentElement.parentElement.nextSibling;
             if (nextObj) {
                 let nextImgObj =  nextObj.getElementsByClassName('cursor')[0];
                 let nextTitle =nextImgObj.getAttribute('title');
@@ -167,7 +169,7 @@ function openModalLightBox (obj){
             break;
           case "ArrowLeft":
             // Do something for "left arrow" key press.
-            let previousObj = currentObj.parentElement.previousElementSibling;
+            let previousObj = currentObj.parentElement.parentElement.previousElementSibling;
             if (previousObj) {
                         
                 let previousImgObj =  previousObj.getElementsByClassName('cursor')[0];

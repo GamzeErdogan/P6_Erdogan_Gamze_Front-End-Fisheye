@@ -26,14 +26,15 @@
       </select>
     </nav>
     <aside id="containerImage">
+      <!-- <a href="#" id="containerImageTag"></a> -->
     </aside>
 
     <div id="totalLikesDiv"><div id="totalLikeHeartDiv"><span id="totalLikes">0</span><img src="assets/icons/like-of-filled-heart.png" /></div><span id="totalLikesPrice"></span></div>
     
     <div id="lightbox">
-        <img class="lightbox__close" role="Close Button" src="assets/icons/xmark-solid.svg"/>
-        <img class="lightbox__next" role="Next Button" src="assets/icons/angle-right-solid.svg"/>
-        <img class="lightbox__back" role="Previous Button" src="assets/icons/angle-left-solid.svg"/>
+        <img class="lightbox__close" role="Close Button" aria-label="fermer la dialog" src="assets/icons/xmark-solid.svg"/>
+        <img class="lightbox__next" role="Next Button" aria-label="next image" src="assets/icons/angle-right-solid.svg"/>
+        <img class="lightbox__back" role="Previous Button" aria-label="Previous image" src="assets/icons/angle-left-solid.svg"/>
         <div id="lightbox__container">
           <!-- <img src="#" alt=""> -->
         </div>
@@ -43,7 +44,7 @@
 				<header>
           <h2>Contactez-moi</h2></br>
           <h3 id="titleForm"></h3>
-          <img src="assets/icons/close.svg" role="button" aria-label="contactez- moi" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" role="close dialog" aria-label="close" onclick="closeModal()" />
         </header>
 				<form>
 					<div>

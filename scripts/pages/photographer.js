@@ -15,7 +15,7 @@ async function displayPhotographerPage(photographerID) {
     photographersSection.appendChild(photographerObjj.profilDom);   
     document.getElementById('totalLikesPrice').textContent = photographerObjj.price +"€ / jour";
     document.getElementById('titleForm').textContent = photographerObjj.name;
-    
+
 //-----------media json informations-----------------------------------------------------
     var medias = photographersJsonObj.media.filter(m => m.photographerId == photographerID);
     let getContainerImage = document.getElementById('containerImage');
