@@ -12,7 +12,8 @@ async function displayPhotographerPage(photographerID) {
     console.log("photographer: ",photographerJsonObj);
     const photographerObjj = new photographerObj(photographerJsonObj);
     const photographersSection = document.querySelector(".photograph-header");
-    photographersSection.appendChild(photographerObjj.profilDom);   
+    photographersSection.appendChild(photographerObjj.profilDom); 
+    photographersSection.appendChild(photographerObjj.profilImageDom);
     document.getElementById('totalLikesPrice').textContent = photographerObjj.price +"€ / jour";
     document.getElementById('titleForm').textContent = photographerObjj.name;
 
@@ -50,7 +51,7 @@ async function displayPhotographerPage(photographerID) {
                     } else if(t.video){
                         const mediaVideoDom = mediaObjTitle.justVideoCardDom;
                         getContainerImage.appendChild(mediaVideoDom);
-                    };
+                    }
                 });
             } else if(e.target.value == 'popularite'){ 
                     medias.sort(compareLikes).reverse().forEach(p =>{
@@ -61,11 +62,11 @@ async function displayPhotographerPage(photographerID) {
                         } else if(p.video){
                             const mediaVideoDom = mediaObjTitle.justVideoCardDom;
                             getContainerImage.appendChild(mediaVideoDom);
-                        };
+                        }
                     });
-                }; 
+                }
     });
-};
+}
     
 
 

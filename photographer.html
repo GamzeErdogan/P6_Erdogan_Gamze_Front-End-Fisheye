@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xml:lang="fr" lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -19,24 +17,24 @@
       
     </main>
     <nav>
-      <label>Trier par</label>
+      <label for="section-sort">Trier par </label>
       <select id="section-sort">
         <option value="popularite">Popularite</option>
         <option value="title">Titre</option>
       </select>
     </nav>
     <aside id="containerImage">
-      <!-- <a href="#" id="containerImageTag"></a> -->
+      
     </aside>
 
-    <div id="totalLikesDiv"><div id="totalLikeHeartDiv"><span id="totalLikes">0</span><img src="assets/icons/like-of-filled-heart.png" /></div><span id="totalLikesPrice"></span></div>
+    <div id="totalLikesDiv"><div id="totalLikeHeartDiv"><span id="totalLikes">0</span><img src="assets/icons/like-of-filled-heart.png" alt="heart sembol" /></div><span id="totalLikesPrice"></span></div>
     
     <div id="lightbox">
-        <img class="lightbox__close" role="Close Button" aria-label="fermer la dialog" src="assets/icons/xmark-solid.svg"/>
-        <img class="lightbox__next" role="Next Button" aria-label="next image" src="assets/icons/angle-right-solid.svg"/>
-        <img class="lightbox__back" role="Previous Button" aria-label="Previous image" src="assets/icons/angle-left-solid.svg"/>
+        <img class="lightbox__close" alt="Close Button"  src="assets/icons/xmark-solid.svg"/>
+        <img class="lightbox__next" alt="Next Button"  src="assets/icons/angle-right-solid.svg"/>
+        <img class="lightbox__back" alt="Previous Button"  src="assets/icons/angle-left-solid.svg"/>
         <div id="lightbox__container">
-          <!-- <img src="#" alt=""> -->
+          
         </div>
     </div>
     <div id="contact_modal" role="dialog" aria-hidden="true">
@@ -44,25 +42,25 @@
 				<header>
           <h2>Contactez-moi</h2></br>
           <h3 id="titleForm"></h3>
-          <img src="assets/icons/close.svg" role="close dialog" aria-label="close" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="close dialog"  onclick="closeModal()" />
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input type="text" id="prenom" />
+						<label for="prenom">Prénom</label>
+						<input type="text" id="prenom" name="name" required>
 					</div>
           <div>
-						<label>Nom</label>
-						<input type="text" id="surname"/>
+						<label for="surname">Nom</label>
+						<input type="text" id="surname" required/>
 					</div>
           <div>
-						<label >Email</label>
-						<input type="Email" id="email" placeholder="example@gmail.com"/>
+						<label for="email">Email</label>
+						<input type="Email" id="email" placeholder="example@gmail.com" required/>
 					</div>
           <div>
-						<label>Votre Message</label>
-						<input id="formMessageInput" type="text" placeholder="Vous pouvez ecrire votre message ici." maxlength="250"/>
-					</div>
+						<label for="formMessageInput">Votre Message</label>
+						<input id="formMessageInput" type="text" placeholder="Vous pouvez ecrire votre message ici." maxlength="250" required/>
+          </div>
           <button  id="sendButon" class="contact_button">Envoyer</button>
 				</form>
 			</div>

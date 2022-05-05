@@ -9,7 +9,7 @@ class Media {
         this.date = mediaJsonObj.date
         this.price = mediaJsonObj.price
         this.video = mediaJsonObj.video
-    };
+    }
 
     
     get mediaCardDom(){
@@ -20,16 +20,16 @@ class Media {
         alt="${this.title}"/></a>
         <div class="positionOfLikes">
             <p class="titleStyle"> ${this.title}</p>
-            <div class="positionOfDiv">
+            <button class="positionOfDiv" onclick="likeMe(this)">
                 <p class="heartP">${this.likes}</p>
                 <div class="heartDiv">
-                 <img class="heartStyle heartPosition like-no" src="assets/icons/love.png"  onclick="likeMe(this)"/>
+                 <img class="heartStyle heartPosition like-no" src="assets/icons/love.png"/>
                 </div>
-            </div>
+            </button>
         </div>
         `;
         return creatCard;
-    };
+    }
     
     get justVideoCardDom(){
         let creatVideoTag = document.createElement('div');
@@ -39,38 +39,38 @@ class Media {
         </video></a>
         <div class="positionOfLikes">
             <p class="titleStyle"> ${this.title}</p>
-            <div class="positionOfDiv">
+            <button class="positionOfDiv" onclick="likeMe(this)">
                 <p class="heartP">${this.likes}</p>
                 <div class="heartDiv">
-                    <img class="heartStyle heartPosition like-no" src="assets/icons/love.png" onclick="likeMe(this)"/>
+                    <img class="heartStyle heartPosition like-no" src="assets/icons/love.png"/>
                 </div>
-            </div>
+            </button>
         </div>
         `;
         return creatVideoTag;
-    };
+    }
 
-};
+}
 
 function likeMe(obj){
     var heartP = obj.parentElement.parentElement.getElementsByClassName("heartP")[0];
 
     if (heartP.classList.contains('clicked')) {
         //Remove like
-        obj.src='assets/icons/love.png';
+        obj.getElementsByClassName('like-no')[0].src='assets/icons/love.png';
         heartP.textContent--;
         heartP.classList.remove('clicked');
 
         document.getElementById('totalLikes').textContent--;
     } else {
         //Add like
-        obj.src='assets/icons/like.png';
+        obj.getElementsByClassName('like-no')[0].src='assets/icons/like.png';
         heartP.textContent++;
         heartP.classList.add('clicked');
 
         document.getElementById('totalLikes').textContent++;
-    };
-};
+    }
+}
 
 
 function openModalLightBox (obj){
@@ -90,12 +90,12 @@ function openModalLightBox (obj){
             break;
             case 'VIDEO':
                 var srcInfo= obj.firstChild.querySelector('source').getAttribute('src');
-                lightBox.innerHTML =`<video controls alt="${title}">
+                lightBox.innerHTML =`<video controls alt="${title}" tabIndex="0">
                                         <source src="${srcInfo}" type="video/mp4"/>
                                      </video>
                                      <p class="lightBocTitle">${title}</p>`;
             break;
-    };
+    }
 
     // Action for next button
     var currentObj = obj.firstChild;
@@ -131,14 +131,14 @@ function openModalLightBox (obj){
                     break;
                 case 'VIDEO':
                         srcInfo = previousImgObj.querySelector('source').getAttribute('src');
-                        lightBox.innerHTML =`<video controls alt="${title}">
+                        lightBox.innerHTML =`<video controls alt="${title}" tabIndex="0">
                                                 <source src="${srcInfo}" type="video/mp4"/>
                                              </video>
                                              <p class="lightBocTitle">${previousTitle}</p>`;
                     break;
-            };
+            }
             currentObj = previousImgObj;
-        };
+        }
     });
     
 
@@ -165,7 +165,7 @@ function openModalLightBox (obj){
                                     <p class="lightBocTitle">${nextTitle}</p>`;
         
                 currentObj = nextImgObj;
-            };
+            }
             break;
           case "ArrowLeft":
             // Do something for "left arrow" key press.
@@ -182,14 +182,14 @@ function openModalLightBox (obj){
                         break;
                     case 'VIDEO':
                             srcInfo = previousImgObj.querySelector('source').getAttribute('src');
-                            lightBox.innerHTML =`<video controls alt="${title}">
+                            lightBox.innerHTML =`<video controls alt="${title}" tabIndex="0">
                                                     <source src="${srcInfo}" type="video/mp4"/>
                                                  </video>
                                                  <p class="lightBocTitle">${previousTitle}</p>`;
                         break;
-                };
+                }
                 currentObj = previousImgObj;
-            };
+            }
                     
             break;
           case "Escape":
@@ -198,11 +198,11 @@ function openModalLightBox (obj){
             break;
           default:
             return; // Quit when this doesn't handle the key event.
-        };
+        }
       
         // Cancel the default action to avoid it being handled twice
         event.preventDefault();
-      }, true)};
+      }, true)}
 
       function compare( a, b ) {
         if ( a.title < b.title ){
@@ -212,8 +212,8 @@ function openModalLightBox (obj){
           return 1;
         }
         return 0;
-      };
+      }
 
       function compareLikes( a, b ) {
         return a.likes - b.likes;
-      };
+      }

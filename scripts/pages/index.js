@@ -6,14 +6,14 @@ async function displayHomePage(photographers) {
         const photographerTemplate = new photographerObj(photographerProfil);
         photographersSection.appendChild(photographerTemplate.cardDom);
     });
-};
+}
 
 async function init() {
     const photographersObj = await fishEyesAPI();
     console.log("result: ",photographersObj);
     displayHomePage(photographersObj.photographers);
 
-};
+}
 
 init();
 

@@ -10,7 +10,7 @@ class photographerObj {
         this.tagline = photographerJsonObj.tagline
         this.price = photographerJsonObj.price
         this.portrait = photographerJsonObj.portrait
-    };
+    }
 
     //Property of the photographer class
     //This property returns home page card complated dom
@@ -28,30 +28,36 @@ class photographerObj {
             </div> `;
 
         return this.appendHtmlDomToSection(innerHtml);
-    };
+    }
     
     //This property returns photographer page profil dom
     get profilDom(){
         let innerHtml = `
-            <h2 id="photographerNameStyle" class="photographerPosition">${this.name}</h2>
-            <h4 class="photographerTitle photographerPosition"
-                id="photographerTitleStyle">${this.city}, ${this.country}</h4>
-            <p class="photographerTag photographerPosition" id="photographerTagStyle">${this.tagline} </p>
-         
-            <img id="photographerImageStyle"
-                src="assets/photographersMedia/PhotographersIdPhotos/${this.portrait}"
-                alt="${this.name}"
-             /> `;
+                <h2 id="photographerNameStyle" class="photographerPosition">${this.name}</h2>
+                <h4 class="photographerTitle photographerPosition"
+                    id="photographerTitleStyle">${this.city}, ${this.country}</h4>
+                <p class="photographerTag photographerPosition" id="photographerTagStyle">${this.tagline} </p>
+            `;
 
         return this.appendHtmlDomToSection(innerHtml);
-    };
+    }
+    get profilImageDom(){
+        let imageDom = document.createElement('div');
+        imageDom.setAttribute('id','imageDiv');
+        imageDom.innerHTML = `<img id="photographerImageStyle"
+        src="assets/photographersMedia/PhotographersIdPhotos/${this.portrait}"
+        alt="${this.name}"
+     />`
+        return imageDom;
+    }
 
     appendHtmlDomToSection(innerHTML){
-        const creatSection = document.createElement('section');
+        const creatSection = document.createElement('div');
+        creatSection.setAttribute('id','profilInfo');
         creatSection.innerHTML = innerHTML;
 
         return creatSection;
-    };
+    }
 
    
-};
+}
