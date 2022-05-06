@@ -33,10 +33,10 @@ class photographerObj {
     //This property returns photographer page profil dom
     get profilDom(){
         let innerHtml = `
-                <h2 id="photographerNameStyle" class="photographerPosition">${this.name}</h2>
-                <h4 class="photographerTitle photographerPosition"
+                <h2 id="photographerNameStyle">${this.name}</h2>
+                <h4 class="photographerTitle "
                     id="photographerTitleStyle">${this.city}, ${this.country}</h4>
-                <p class="photographerTag photographerPosition" id="photographerTagStyle">${this.tagline} </p>
+                <p class="photographerTag" id="photographerTagStyle">${this.tagline} </p>
             `;
 
         return this.appendHtmlDomToSection(innerHtml);
