@@ -34,7 +34,7 @@ class Media {
     get justVideoCardDom(){
         let creatVideoTag = document.createElement('div');
         creatVideoTag.innerHTML = `
-        <a href="#" onclick="openModalLightBox(this)"><video class="cursor" width="350px" height="350px" title="${this.title}" >
+        <a href="#" onclick="openModalLightBox(this)"><video class="cursor" width="300px" height="300px" title="${this.title}" >
             <source src="assets/photographersMedia/${this.photographerId}/${this.video}" type="video/mp4">
         </video></a>
         <div class="positionOfLikes">
